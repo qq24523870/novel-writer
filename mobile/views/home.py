@@ -62,7 +62,7 @@ class HomePage:
                         on_click=lambda e, p=pid, n=name: self.navigate("project_detail", {"pid": p, "name": n}),
                     ),
                     border_radius=12, bgcolor=C.SURFACE_CONTAINER_HIGHEST,
-                    margin=ft.margin.symmetric(horizontal=8, vertical=3)))
+                    margin=ft.Margin.symmetric(vertical=3, horizontal=8)))
             controls.append(ft.ListView(controls=items, spacing=2, height=480))
 
         controls.append(ft.Text("开发者: 青易  QQ:24523870", size=11, color=C.OUTLINE, text_align=ft.TextAlign.CENTER))
