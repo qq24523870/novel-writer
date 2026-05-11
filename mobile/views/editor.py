@@ -41,14 +41,14 @@ class EditorPage:
             ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
             ft.Row([
                 ft.FilledButton("续写", icon=I.AUTO_STORIES, on_click=self._ai_continue,
-                    style=ft.ButtonStyle(padding=ft.padding.symmetric(horizontal=8, vertical=4))),
+                    style=ft.ButtonStyle(padding=ft.Padding.symmetric(vertical=4, horizontal=8))),
                 ft.FilledButton("润色", icon=I.BRUSH, on_click=self._ai_polish,
-                    style=ft.ButtonStyle(padding=ft.padding.symmetric(horizontal=8, vertical=4))),
+                    style=ft.ButtonStyle(padding=ft.Padding.symmetric(vertical=4, horizontal=8))),
                 ft.FilledButton("扩写", icon=I.ADD_CIRCLE, on_click=self._ai_expand,
-                    style=ft.ButtonStyle(padding=ft.padding.symmetric(horizontal=8, vertical=4))),
+                    style=ft.ButtonStyle(padding=ft.Padding.symmetric(vertical=4, horizontal=8))),
             ], spacing=4, wrap=True),
             ft.Row([self.wc_text, self.ai_stat]),
-            ft.Container(content=self.editor, height=450, padding=ft.padding.only(top=4)),
+            ft.Container(content=self.editor, height=450, padding=ft.Padding.only(top=4)),
         ])
 
     def _on_change(self, e):
