@@ -23,7 +23,7 @@ jobs:
       - name: Build APK
         run: |
           cd mobile
-          flet build apk --product "AI Novel Writer" --org "com.qingyi.novelwriter"
+          flet build apk --product "AI Novel Writer" --org "com.qingyi.novelwriter" --yes
       - uses: actions/upload-artifact@v4
         with:
           name: AI-Novel-Writer-APK
