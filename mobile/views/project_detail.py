@@ -63,7 +63,7 @@ class ProjectDetailPage:
                         on_click=lambda e, c=cid, t=ct: self.navigate("editor", {"pid": self.pid, "cid": c, "title": t}),
                     ),
                     border_radius=8, bgcolor=C.SURFACE_CONTAINER_HIGHEST,
-                    margin=ft.margin.symmetric(horizontal=8, vertical=2)))
+                    margin=ft.Margin.symmetric(vertical=2, horizontal=8)))
         return ft.Column(controls)
 
     def _new_volume(self, e):
