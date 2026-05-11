@@ -26,9 +26,11 @@ jobs:
           cp -r config/default_config.json mobile/config/ 2>/dev/null || true
 
       - name: Build APK
+        env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
         run: |
           cd mobile
-          flet build apk --name "AI Novel Writer" --org "com.qingyi.novelwriter"
+          flet build apk --app-name "AI Novel Writer" --org "com.qingyi.novelwriter"
 
       - uses: actions/upload-artifact@v4
         with:
