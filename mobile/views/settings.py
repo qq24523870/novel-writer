@@ -16,7 +16,7 @@ class SettingsPage:
         self.tab = 0
 
     def build(self) -> ft.Control:
-        self.container = ft.Container(height=500)
+        self.container = ft.Container()
         self._render_tab(0, update=False)
         return ft.Column([
             ft.Row([
@@ -29,7 +29,7 @@ class SettingsPage:
             ], spacing=8),
             ft.Divider(),
             self.container,
-        ], scroll=True)
+        ])
 
     def _render_tab(self, idx, update=True):
         self.tab = idx
