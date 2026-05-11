@@ -25,7 +25,7 @@ class HomePage:
                 ft.IconButton(icon=I.INFO_OUTLINE, tooltip="开发者: 青易  QQ:24523870"),
             ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
             ft.FilledButton("新建项目", icon=I.ADD, on_click=self._show_create_dialog,
-                            style=ft.ButtonStyle(padding=ft.padding.all(14))),
+                            style=ft.ButtonStyle(padding=ft.Padding.all(14))),
             ft.Divider(),
         ]
 
@@ -36,7 +36,7 @@ class HomePage:
                     ft.Text("还没有项目\n点击「新建项目」开始创作", size=14,
                             color=C.OUTLINE, text_align=ft.TextAlign.CENTER),
                 ], horizontal_alignment=ft.CrossAxisAlignment.CENTER),
-                alignment=ft.alignment.center, padding=ft.padding.all(40)))
+                alignment=ft.alignment.center, padding=ft.Padding.all(40)))
         else:
             items = []
             for p in projects:
