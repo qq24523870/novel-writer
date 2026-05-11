@@ -36,7 +36,7 @@ class HomePage:
                     ft.Text("还没有项目\n点击「新建项目」开始创作", size=14,
                             color=C.OUTLINE, text_align=ft.TextAlign.CENTER),
                 ], horizontal_alignment=ft.CrossAxisAlignment.CENTER),
-                alignment=ft.alignment.center, padding=ft.Padding.all(40)))
+                alignment=ft.alignment.Alignment.CENTER, padding=ft.Padding.all(40)))
         else:
             items = []
             for p in projects:
