@@ -29,7 +29,7 @@ class SettingsPage:
             ], spacing=8),
             ft.Divider(),
             self.container,
-        ])
+        ], scroll=True)
 
     def _render_tab(self, idx, update=True):
         self.tab = idx
