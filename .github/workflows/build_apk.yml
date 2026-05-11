@@ -1,0 +1,36 @@
+name: Build Android APK
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install flet openai loguru python-docx markdown lxml httpx tiktoken msgpack oauthlib repath
+
+      - name: Sync core modules into mobile
+        run: |
+          cp -r core/*.py mobile/core/ 2>/dev/null || true
+          cp -r models/*.py mobile/models/ 2>/dev/null || true
+          cp -r utils/*.py mobile/utils/ 2>/dev/null || true
+          cp -r config/default_config.json mobile/config/ 2>/dev/null || true
+
+      - name: Build APK
+        run: |
+          cd mobile
+          flet build apk --name "AI Novel Writer" --org "com.qingyi.novelwriter"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: AI-Novel-Writer-APK
+          path: mobile/build/apk/*.apk

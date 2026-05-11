@@ -1,0 +1,28 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.spec
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Project temp
+logs/
+*/.ds_store
+Thumbs.db
+
+# Mobile build output
+mobile/build/
+mobile/android/
+mobile/.packaging/
+
+# OS
+.DS_Store

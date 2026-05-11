@@ -1,0 +1,84 @@
+====================================================================
+  AI小说创作助手 - 如何打包安卓APK安装包
+  开发者: 青易  QQ:24523870
+====================================================================
+
+Windows 电脑无法直接编译 APK（需要 Linux 系统）。
+以下是 2 种简单的拿 APK 的方法：
+
+
+--------------------------------------------------------------------
+方法一：GitHub Actions 云端免费编译（推荐，每步都告诉你点哪里）
+--------------------------------------------------------------------
+
+【第1步】打开浏览器，访问：https://github.com
+        注册一个免费账号（用邮箱就行）
+
+【第2步】登录后，点右上角绿色 「New」 按钮 → 创建新仓库
+        名称填：novel-writer ← 随便写
+        其他什么都不用改，点底部绿色 「Create repository」
+
+【第3步】创建后你会看到一个页面，上面有指令。
+        先在电脑上打开 CMD（Win+R → 输入 cmd → 回车）
+
+【第4步】把下面 4 行命令，一行一行复制到 CMD 中执行：
+
+cd C:\Users\Administrator\Desktop\project1
+git init
+git add .
+git commit -m "first commit"
+
+【第5步】再加下面 3 行（把 YOUR_NAME 换成你的 GitHub 用户名）：
+
+git remote add origin https://github.com/YOUR_NAME/novel-writer.git
+git branch -M main
+git push -u origin main
+
+        提示输入用户名和密码时，用户名填 GitHub 用户名，
+        密码不是 GitHub 密码！需要先在 GitHub 生成一个 Token：
+        https://github.com/settings/tokens → Generate new token (classic)
+        → 勾选 repo 权限 → 生成 → 复制那串字符作为密码
+
+【第6步】代码推上去之后，打开：
+        https://github.com/YOUR_NAME/novel-writer/actions
+        点左侧 「Build Android APK」
+        点右侧 「Run workflow」→ 绿色 「Run workflow」
+
+【第7步】等 5-10 分钟，刷新页面，会看到 ✅ 绿色勾
+        点进去 → 页面最下方 Artifacts 区域
+        下载 「AI-Novel-Writer-APK」 这个 zip 文件
+        解压即得到 .apk 安装包！
+
+
+--------------------------------------------------------------------
+方法二：复制到 Linux 电脑上编译
+--------------------------------------------------------------------
+
+如果你有 Linux 电脑或云服务器（VPS），把整个 mobile/ 文件夹
+复制过去，然后在终端执行：
+
+    cd mobile
+    pip install flet
+    bash build.sh
+
+APK 会生成在 mobile/build/apk/ 目录下。
+
+
+--------------------------------------------------------------------
+常见问题
+--------------------------------------------------------------------
+
+Q: 手机上装 APK 提示"禁止安装未知来源"怎么办？
+A: 设置 → 安全 → 允许安装未知来源应用 → 打开即可
+
+Q: APK 支持哪些安卓系统？
+A: Android 8.0 以上，小米澎湃OS、华为EMUI/HarmonyOS、
+   OPPO ColorOS、vivo OriginOS、三星 OneUI 等全支持
+
+Q: GitHub 推代码时 Token 怎么生成？
+A: 打开 https://github.com/settings/tokens
+   → Generate new token (classic)
+   → Expiration 选 No expiration
+   → 勾选 repo 全部权限
+   → 点底部 Generate token
+   → 把绿色字符复制下来，这就是登录密码
