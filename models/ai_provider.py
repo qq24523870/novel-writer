@@ -83,6 +83,8 @@ class OpenAIProvider(AIProvider):
                 )
                 full_text = ""
                 for chunk in response:
+                    if not chunk.choices:
+                        continue
                     if chunk.choices[0].delta.content:
                         content = chunk.choices[0].delta.content
                         full_text += content
@@ -348,6 +350,8 @@ class OpenAICompatibleProvider(AIProvider):
                 )
                 full_text = ""
                 for chunk in response:
+                    if not chunk.choices:
+                        continue
                     if chunk.choices[0].delta.content:
                         content = chunk.choices[0].delta.content
                         full_text += content
